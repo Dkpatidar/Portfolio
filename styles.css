@@ -272,22 +272,6 @@ nav a:nth-child(8) {
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-}
-
-
-
-
 section {
     margin: 80px 0;
     opacity: 0;
@@ -734,16 +718,6 @@ h2::after {
     }
 }
 
-
-
-/* Responsive design for certificate section */
-@media (max-width: 768px) {
-    .certificate-card {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
 /*Contact*/
 #contact {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -888,19 +862,6 @@ h2::after {
     transform: translateX(0);
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 3em;
-    }
-
-    nav a {
-        margin: 0 10px;
-    }
-}
 
 /*Footer*/
 footer {
@@ -1198,12 +1159,6 @@ footer:hover::after {
     transform: translateX(0);
 }
 
-@media (max-width: 768px) {
-    .education-item {
-        max-width: 90%;
-    }
-}
-
 /* Fade-in animation */
 @keyframes fadeInUp {
     from {
@@ -1218,3 +1173,140 @@ footer:hover::after {
 }
 
 /*Education End*/
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .project-link {
+        position: static;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .skills {
+        justify-content: flex-start;
+    }
+
+    .skill {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .certificate-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .education-item {
+        width: 100%;
+        height: auto;
+    }
+
+    #contact img {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .about-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skill {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+
+    .experience-item,
+    .project {
+        padding: 15px;
+    }
+
+    .experience-item h3,
+    .project h3 {
+        font-size: 1.2em;
+    }
+
+    .experience-item .date,
+    .project h4 {
+        font-size: 0.9em;
+    }
+
+    .experience-item li,
+    .project p {
+        font-size: 0.9em;
+    }
+
+    #contact p {
+        font-size: 1em;
+    }
+
+    .download-btn a {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .skill {
+        font-size: 0.7em;
+        padding: 5px 10px;
+    }
+
+    .experience-item h3,
+    .project h3 {
+        font-size: 1.1em;
+    }
+
+    .experience-item .date,
+    .project h4 {
+        font-size: 0.8em;
+    }
+
+    .experience-item li,
+    .project p {
+        font-size: 0.8em;
+    }
+}
