@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        // 🌓 Apply theme before CSS loads
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const useDark = savedTheme === 'dark' || savedTheme === null;
+            if (useDark) {
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+            }
+        })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Deepak Patidar - Full Stack Developer portfolio, showcasing projects, skills, and experience.">
+    <meta name="keywords" content="Java, Spring Boot, Full Stack Developer, Portfolio, Deepak Patidar">
+    <meta name="author" content="Deepak Patidar">
+    <title>Deepak Patidar - Full Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="assets/icon.png" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Quantico&display=swap"
+        rel="stylesheet">
+    <!-- === 3. AOS.js Integration for Scroll Animations === -->
+    <!-- Add in <head> -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div class="loader-container">
+            <!-- SVG Rings Loader -->
+            <svg class="pl" width="128px" height="128px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                <circle class="pl__ring1" cx="64" cy="64" r="52.5" fill="none" stroke="#3b82f6" stroke-width="12"
+                    transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="329.9 329.9"
+                    stroke-dashoffset="-329.3"></circle>
+                <circle class="pl__ring2" cx="64" cy="64" r="37.5" fill="none" stroke="#60a5fa" stroke-width="9"
+                    transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="254.5 254.5"
+                    stroke-dashoffset="-254"></circle>
+                <circle class="pl__ring3" cx="64" cy="64" r="22.5" fill="none" stroke="#93c5fd" stroke-width="9"
+                    transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="204.2 204.2"
+                    stroke-dashoffset="-203.9"></circle>
+            </svg>
+
+            <!-- Coding Icon in Center -->
+            <div class="loader-icon">
+                <i class="fas fa-code"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Alert -->
+    <div id="form-alert" class="modal hidden">
+        <div class="modal-content" id="modalMessage">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="alert-icon" id="alertIcon"></div>
+            <p id="alertText"></p>
+
+            <!-- Fallback contact message -->
+            <div id="fallbackMessage" class="fallback-message hidden">
+                <br>
+                <small>Or feel free to reach out directly at
+                    <a target="_blank" href="mailto:deepupatidar1999@gmail.com">
+                        deepupatidar1999@gmail.com
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="page-wrapper">
+        <!-- Navbar -->
+        <!-- Theme Toggle -->
+        <!-- Hero Section -->
+        <!-- All Sections (About, Skills, Projects, Contact, Footer, etc.) -->
+
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+
+        <button><!-- WhatsApp Button -->
+            <a href="https://wa.link/u7zs9p" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i></a>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Default Logo">
+                    <a href="#home"><span class="name-script">Deepak Patidar</span></a>
+                </div>
+                <!-- <a href="#home">Deepak</a> -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+
+                    <li class="dropdown"><a href="#about" class="nav-link">About </a><i
+                            class="fa-solid fa-caret-down dropdown-toggle"></i>
+                        <ul class="dropdown-content">
+                            <li><a href="#education" class="nav-link">Education</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#experience" class="nav-link">Experience </a><i
+                            class="fa-solid fa-caret-down dropdown-toggle"></i>
+                        <ul class="dropdown-content">
+                            <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#projects" class="nav-link">Projects </a><i
+                            class="fa-solid fa-caret-down dropdown-toggle"></i>
+                        <ul class="dropdown-content">
+                            <li><a href="#skills" class="nav-link">Skills</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <main id="mainContent">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1>Hi, I'm <span>Deepak Patidar</span></h1>
+                        <span id="hero-typed" class="typed-cursor"> </span>
+                        <p>A passionate Java developer with 2.3 years of experience in building scalable backend systems
+                            and
+                            responsive web
+                            applications. Skilled in Java, Spring Boot, REST APIs, MySQL, and front-end technologies,
+                            with a
+                            strong focus on clean
+                            code, performance optimization, and problem-solving.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary" aria-label="Contact Deepak">
+                                <i class="fas fa-envelope"></i>
+                                Get In Touch
+                            </a>
+                            <a href="Deepak_Patidar.pdf" class="btn btn-outline bounce-btn" download="" target="_blank"
+                                aria-label="Resume">
+                                <i class="fa-solid fa-file"></i>
+                                Resume
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="hero-social-links">
+                        <a href="https://www.linkedin.com/in/deepak-patidar-545352194" target="_blank"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin fa-bounce"></i>
+                        </a>
+                        <a href="https://github.com/Dkpatidar" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github fa-beat"></i>
+                        </a>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-flip-card" tabindex="0">
+                            <div class="hero-flip-inner">
+                                <div class="hero-flip-front">
+                                    <img src="assets/Deepak_photo.jpg" alt="Hero Illustration">
+                                </div>
+                                <div class="hero-flip-back">
+                                    <h4 class="section-title"><i class="fa-solid fa-heart" style="color:#2563eb;"></i>
+                                        Hobbies</h4>
+                                    <ul>
+                                        <li><i class="fas fa-chess"></i> Chess</li>
+                                        <li><i class="fa-solid fa-pencil"></i> Sketching</li>
+                                        <li><i class="fa-solid fa-futbol"></i> Football</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="section section-alt" data-aos="fade-up" id="about">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-user"></i></span>
+                            About Me
+                        </h2>
+                        <p class="section-subtitle">Learn more about my background and passion for development</p>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="assets/about.png">
+                        </div>
+                        <div class="about-text">
+                            <p>I’m a dedicated Java developer with 2.3 years of industry experience in building robust
+                                backend
+                                systems and responsive
+                                web applications. I specialize in Java, Spring Boot, REST APIs, MySQL, and front-end
+                                technologies like HTML, CSS, and
+                                JavaScript.</p>
+                            <p>My work involves creating scalable, user-friendly solutions with clean, efficient code.
+                                From
+                                developing real-time APIs
+                                to optimizing microservices, I enjoy solving complex technical challenges and ensuring
+                                smooth
+                                application performance
+                                across platforms.</p>
+                            <p>I thrive in collaborative environments and have a continuous drive to learn emerging
+                                technologies. Outside of
+                                development, I stay engaged with tech trends, contribute to open-source projects, and
+                                focus
+                                on
+                                delivering impactful,
+                                high-quality solutions.</p>
+                            <p>Let's connect and create something great together!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Experience Section -->
+            <section class="section" data-aos="fade-up" id="experience">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-briefcase"></i></span>
+                            Experience
+                        </h2>
+                        <p class="section-subtitle">My professional journey and key achievements</p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title"><span class="experience-company">WIPRO</span> - Project
+                                    Engineer
+                                </h3>
+                                <p>National Stock Exchange (NSE) - Mumbai</p>
+                            </div>
+                            <div class="experience-duration">May 2022 - Aug 2024</div>
+                        </div>
+                        <div class="experience-description">
+
+                            <ul>
+                                <li>Designed and tested REST APIs using Spring Boot and Swagger, integrated backend
+                                    systems
+                                    for
+                                    business functions.</li>
+                                <li>Implemented SQL queries for efficient data retrieval and manipulation, ensuring
+                                    seamless
+                                    user experience.</li>
+                                <li>Developed a Ticker Notification API to display real-time popup messages using
+                                    event-driven
+                                    design patterns.</li>
+                                <li>Built and tested backend services with Postman.</li>
+                                <li>Used Bitbucket for version control and participated in code reviews, ensuring
+                                    adherence
+                                    to
+                                    clean code practices.</li>
+                                <li>Worked on optimizing overall efficiency of micro-services to improve performance and
+                                    reliability.</li>
+                                <li>Used debugging and profiling tools to diagnose and resolve issues quickly and
+                                    efficiently.
+                                </li>
+                                <li>Gained hands-on experience with Swagger for API documentation.</li>
+                                <li>Conducted thorough requirement gathering sessions, resulting in 95% accuracy in
+                                    capturing
+                                    client needs..</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title"><span class="experience-company">WIPRO</span> - Intern</h3>
+                                <p>Full Stack Java Developer</p>
+                            </div>
+                            <div class="experience-duration">Feb 2022 - Apr 2024</div>
+                        </div>
+                        <div class="experience-description">
+
+                            <ul>
+                                <li>Developed a capstone project on the Travel Domain which have different products
+                                    services
+                                    like hotels, flights, cars,
+                                    etc.</li>
+                                <li>Developed and maintain the code using Java/J2EE technologies.</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Projects Section -->
+            <section class="section section-alt" data-aos="fade-up" id="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-laptop-code"></i></span>
+                            Projects
+                        </h2>
+                        <p class="section-subtitle">Some of my recent work and personal projects</p>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3 class="project-title">Advisory Website</h3>
+                                <div class="project-links">
+                                    <a href="https://capitalgainfinancialsolution.netlify.app/" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag">Netlify</span>
+                                    <span class="skill-tag">Exception Handling</span>
+                                </div>
+                                <p class="project-description">
+                                    <span>Capital Gain Financial Solutions:</span>
+                                    Developed a responsive investment advisory website using HTML, CSS, and JavaScript
+                                    with
+                                    dynamic features and a
+                                    user-friendly interface. Implemented exception handling and a mobile-first design
+                                    for
+                                    smooth, secure performance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3 class="project-title">Digital Library</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/Digital-library" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Rest APIs</span>
+                                    <span class="skill-tag">Lombok</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">JUnit</span>
+                                    <span class="skill-tag">Exception Handling</span>
+                                </div>
+                                <p class="project-description">
+                                    <span>GFG Backend Development Program</span>
+                                    Developed a Digital Library Management System using Java, Spring Boot, and
+                                    PostgreSQL to
+                                    manage books and user
+                                    operations. Implemented REST APIs, exception handling, and unit testing for
+                                    reliability
+                                    and
+                                    smooth performance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3 class="project-title">E-Wallet</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/E-Wallet" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Rest APIs</span>
+                                    <span class="skill-tag">Lombok</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">Exception Handling</span>
+
+                                </div>
+                                <p class="project-description">
+                                    <span>GFG Backend Development Program</span>
+                                    Created an e-Wallet application that allows users to add funds and transfer money
+                                    securely
+                                    using Java, Spring Boot, and
+                                    REST APIs. Utilized PostgreSQL for transaction data management and implemented
+                                    exception
+                                    handling to ensure robust and
+                                    reliable operations.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Hidden projects (start hidden, same structure) -->
+                        <div class="project-card extra hidden">
+                            <div class="project-header">
+                                <h3 class="project-title">Personal Portfolio</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/E-Wallet" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag">Netlify</span>
+
+                                </div>
+                                <p class="project-description">
+                                    Built a responsive and interactive portfolio website using HTML, CSS, and
+                                    JavaScript
+                                    to
+                                    showcase my projects and skills.
+                                    Designed with a clean UI, smooth animations, and a mobile-friendly layout for an
+                                    enhanced
+                                    user experience.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card extra hidden">
+                            <div class="project-header">
+                                <h3 class="project-title">Movie Review</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/MovieReview" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Rest APIs</span>
+                                    <span class="skill-tag">Lombok</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">Exception Handling</span>
+
+                                </div>
+                                <p class="project-description">
+                                    <span>GFG Backend Development Program</span>
+                                    Developed a movie review platform where users can search movies by title, rate
+                                    them,
+                                    and add
+                                    reviews using Java, Spring
+                                    Boot, and REST APIs. Implemented PostgreSQL for persistent data storage and
+                                    custom
+                                    queries
+                                    to fetch top 5 movies by
+                                    genre.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card extra hidden">
+                            <div class="project-header">
+                                <h3 class="project-title">Book My Movie</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/BookMyMovie" target="_blank"
+                                        class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Site
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Rest APIs</span>
+                                    <span class="skill-tag">Lombok</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">Exception Handling</span>
+                                    <span class="skill-tag">Kafka</span>
+
+                                </div>
+                                <p class="project-description">
+                                    <span>GFG Backend Development Program</span>
+                                    Built a movie ticket booking system using Java, Spring Boot, and PostgreSQL with
+                                    features
+                                    like movie search, genre
+                                    filtering, and ticket booking. Integrated Kafka for real-time booking
+                                    notifications
+                                    and REST
+                                    APIs for smooth operations.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card extra hidden">
+                            <div class="project-header">
+                                <h3 class="project-title">Booking Website</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                        View Project
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">Exception Handling</span>
+                                </div>
+                                <p class="project-description">
+                                    Developed a responsive booking website using Java, HTML/CSS, JavaScript, and
+                                    MySQL,
+                                    enabling
+                                    users to search, reserve,
+                                    and manage bookings seamlessly. Implemented real-time features and robust
+                                    exception
+                                    handling
+                                    for smooth, secure, and
+                                    reliable user experience.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-card extra hidden">
+                            <div class="project-header">
+                                <h3 class="project-title">Quiz Application</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Dkpatidar/QuizApp" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                        View Project
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-skills">
+                                    <span class="skill-tag">Core Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">Exception Handling</span>
+                                </div>
+                                <p class="project-description">
+                                    Developed a quiz application using Spring Boot, MySQL, and Core Java with REST
+                                    APIs for real-time quiz taking
+                                    and score calculation. Ensured smooth backend communication, efficient data
+                                    handling, and a
+                                    responsive user interface.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewAll">
+                        <button id="viewAllBtn" class="btn btn-primary"><span id="toggleText" data-expanded="false">View
+                                All </span><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section" data-aos="fade-up" id="skills">
+                <div class="container">
+                    <div class="skills">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <span class="section-icon"><i class="fas fa-cogs"></i></span>
+                                Skills
+                            </h2>
+                            <p class="section-subtitle">Technologies and tools I work with</p>
+                        </div>
+                        <div class="coding-languages">
+                            <ul>
+                                <li>
+                                    <img src="assets/logo/java.svg" width="80px" alt="Java"><span>JAVA</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/spring.svg" width="80px" alt="Spring Boot"><span>Spring
+                                        Boot</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/mysql.svg" width="80px" alt="MySQL"><span>MySQL</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/postgresql.svg" width="80px"
+                                        alt="PostgreSQL"><span>PostgreSQL</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/html_5.svg" width="80px" alt="HTML"><span>HTML</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/css3.svg" width="80px" alt="CSS"><span>CSS</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/javascript.svg" width="75px"
+                                        alt="JavaScript"><span>JavaScript</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/bootstrap.svg" width="80px"
+                                        alt="BOOTSTRAP"><span>BOOTSTRAP</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/restapi.png" width="80px" alt="REST APIs"><span>REST
+                                        APIs</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/microservies.png" width="80px"
+                                        alt="Microservice"><span>Microservices</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/github.svg" width="80px" alt="GITHUB"><span>GITHUB</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/git.svg" width="80px" alt="Git"><span>Git</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/Jira.svg" width="80px" alt="Jira"><span>Jira</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/servicenow.svg" width="80px" alt="Service Now"><span>Service
+                                        Now</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/elasticsearch.svg" width="80px"
+                                        alt="Elastic Search"><span>Elastic
+                                        Search</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/redis.svg" width="80px" alt="Redis"><span>Redis</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/apache_kafka.svg" width="80px" alt="Kafka"><span>Kafka</span>
+                                </li>
+
+                                <!-- For Duplicate infinite loop -->
+                                <li>
+                                    <img src="assets/logo/java.svg" width="80px" alt="Java"><span>JAVA</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/spring.svg" width="80px" alt="Spring Boot"><span>Spring
+                                        Boot</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/mysql.svg" width="80px" alt="MySQL"><span>MySQL</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/postgresql.svg" width="80px"
+                                        alt="PostgreSQL"><span>PostgreSQL</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/html_5.svg" width="80px" alt="HTML"><span>HTML</span>
+                                </li>
+                                <li>
+                                    <img src="assets/logo/css3.svg" width="80px" alt="CSS"><span>CSS</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificates Section -->
+            <section class="section section-alt" data-aos="fade-up" id="certificates">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-award"></i></span>
+                            Certificates
+                        </h2>
+                        <p class="section-subtitle">Professional certifications and achievements</p>
+                    </div>
+                    <div class="certificates-grid">
+                        <div class="certificate-card">
+                            <h3 class="certificate-title">Java/J2EE</h3>
+                            <p class="certificate-date">Feb 2022 - Apr 2022</p>
+                            <p class="certificate-description">Completed my Internship of Full Stack Java Development in
+                                Wipro
+                            </p>
+                            <a href="java_internship.pdf" target="_blank" class="certificate-link">
+                                <i class="fas fa-certificate"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                        <div class="certificate-card">
+                            <h3 class="certificate-title">Backend Development</h3>
+                            <p class="certificate-date">Feb 2025 - May 2025</p>
+                            <p class="certificate-description">GeeksForGeeks Java Backend Development</p>
+                            <a href="https://www.geeksforgeeks.org/certificate/1a52e5466359d80c7f07e19dd4637a0c?utm_source=socials&utm_medium=cc_link?utm_source=socials&utm_medium=cc_link"
+                                target="_blank" class="certificate-link">
+                                <i class="fas fa-certificate"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                        <div class="certificate-card">
+                            <h3 class="certificate-title">Web Development</h3>
+                            <p class="certificate-date">Oct 2023</p>
+                            <p class="certificate-description">Responsive web development with modern technologies</p>
+                            <a href="https://freecodecamp.org/certification/Deepak_Patidar/responsive-web-design"
+                                target="_blank" class="certificate-link">
+                                <i class="fas fa-certificate"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                        <div class="certificate-card">
+                            <h3 class="certificate-title">SQL</h3>
+                            <p class="certificate-date">May 2023</p>
+                            <p class="certificate-description">Completed certified course from HackerRank platform</p>
+                            <a href="https://www.hackerrank.com/certificates/iframe/b65a8f555fd5" target="_blank"
+                                class="certificate-link">
+                                <i class="fas fa-certificate"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section" data-aos="fade-up" id="education">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-graduation-cap"></i></span>
+                            Education
+                        </h2>
+                        <p class="section-subtitle">My academic background and qualifications</p>
+                    </div>
+                    <div class="education-timeline">
+                        <div class="education-item">
+                            <div class="edu-top-row">
+                                <h3 class="education-degree">B.Tech - Electrical & Electronics Engineering</h3>
+                                <p class="education-year">2018 - 2022</p>
+                            </div>
+                            <div class="edu-bottom-row">
+                                <p class="education-school">IES IPS Academy, Indore</p>
+                                <span class="education-grade">CGPA: 8.3</span>
+                            </div>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="edu-top-row">
+                                <h3 class="education-degree">Higher Secondary Certificate (HSC)</h3>
+                                <p class="education-year">2017 - 2018</p>
+                            </div>
+                            <div class="edu-bottom-row">
+                                <p class="education-school">Adarsh Malwa School, Shajapur</p>
+                                <span class="education-grade">69%</span>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="edu-top-row">
+                                <h3 class="education-degree">Secondary School Certificate (SSC)</h3>
+                                <p class="education-year">2016 - 2017</p>
+                            </div>
+                            <div class="edu-bottom-row">
+                                <p class="education-school">Sahaj Public School Shajapur</p>
+                                <span class="education-grade">CGPA: 8.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section section-alt" data-aos="fade-up" id="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon"><i class="fas fa-envelope-open-text"></i></span>
+                            Get In Touch
+                        </h2>
+                        <p class="section-subtitle">Let's discuss your next project or collaboration opportunity</p>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Location</h4>
+                                    <p>Indore, Madhya Pradesh, India</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p><a target="_blank"
+                                            href="mailto:deepupatidar1999@gmail.com">deepupatidar1999@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>LinkedIn</h4>
+                                    <p><a href="https://www.linkedin.com/in/deepak-patidar-545352194"
+                                            target="_blank">linkedin.com/in/deepak-patidar-545352194</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>GitHub</h4>
+                                    <p><a href="https://github.com/Dkpatidar"
+                                            target="_blank">https://github.com/Dkpatidar</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm" name="contact" method="POST" data-netlify="true"
+                                netlify-honeypot="bot-field">
+                                <!-- Netlify bot prevention -->
+                                <input type="hidden" name="form-name" value="contact" />
+                                <p style="display: none">
+                                    <label>Don’t fill this out: <input name="bot-field" /></label>
+                                </p>
+                                <div class="form-group">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" placeholder="Enter Name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email*</label>
+                                    <input type="email" id="email" placeholder="Example@gmail.com" name="email"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" placeholder="Type your message..." name="message"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/deepak-patidar-545352194" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Dkpatidar" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:deepupatidar1999@gmail.com" target="_blank" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p>&copy; 2025 Deepak Patidar. All rights reserved.</p>
+                <p style="margin-top:8px; font-size:1.07em; color:#ff4c60; letter-spacing:1px;">Made with <span
+                        style="color:#e25555;">❤</span> by <b>Deepak Patidar</b></p>
+
+            </div>
+        </footer>
+        <!-- Scroll to Top Button -->
+        <button class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
